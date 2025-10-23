@@ -124,10 +124,8 @@ class _CameraScreenState extends State<CameraScreen>
   }
 
   Future<void> onTapForFocus(TapDownDetails details) async {
-    print(size);
     final x = details.globalPosition.dx / size.width;
     final y = details.globalPosition.dy / size.height;
-    print(Offset(x, y));
     try {
       await _cameraController?.setFocusPoint(Offset(x, y));
     } catch (e) {
