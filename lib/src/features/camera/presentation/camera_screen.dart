@@ -11,8 +11,8 @@ import 'package:clicky/src/shared/widgets/loading_widget.dart';
 import 'package:clicky/src/utils/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:gal/gal.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
@@ -123,6 +123,7 @@ class _CameraScreenState extends State<CameraScreen>
     }
   }
 
+  /// TODO ( Izn ur Rehman ) : Tap to Focus Functionality is not working
   Future<void> onTapForFocus(TapDownDetails details) async {
     final x = details.globalPosition.dx / size.width;
     final y = details.globalPosition.dy / size.height;
@@ -144,6 +145,8 @@ class _CameraScreenState extends State<CameraScreen>
     _flash.dispose();
     super.dispose();
   }
+
+  /// TODO ( Izn ur Rehman ) : Prevent Multiple Inits during the Lifecycle
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -185,6 +188,7 @@ class _CameraScreenState extends State<CameraScreen>
                         ValueListenableBuilder(
                           valueListenable: _flash,
                           builder: (_, value, _) {
+                            /// TODO ( Izn ur Rehman ) : Optimize switch block++
                             return Row(
                               children: FlashMode.values
                                   .where((item) => item != FlashMode.always)
@@ -235,6 +239,7 @@ class _CameraScreenState extends State<CameraScreen>
                               child: ValueListenableBuilder(
                                 valueListenable: _videoDuration,
                                 builder: (_, value, _) {
+                                  /// TODO ( Izn ur Rehman ) : Make it developer friendly
                                   return _videoDuration.value == Duration.zero
                                       ? SizedBox.shrink()
                                       : Text(
@@ -328,3 +333,6 @@ class _CameraScreenState extends State<CameraScreen>
     );
   }
 }
+
+/// TODO ( Izn ur Rehman ) : Pinch to Zoom in and Zoom out Functionality is not working
+/// TODO ( Izn ur Rehman ) : Use riverpod
