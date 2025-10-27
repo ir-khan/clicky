@@ -25,6 +25,7 @@ class _CameraScreenState extends State<CameraScreen>
     with WidgetsBindingObserver, MediaQueryMixin {
   List<CameraDescription> _availableCameras = [];
   CameraController? _cameraController;
+  /// TODO ( Izn ur Rehman ) : Remove this LenzDirection Enum and use CameraLensDirection directly
   LenzDirection _lenzDirection = LenzDirection.back;
   final _mediaType = ValueNotifier(MediaType.image);
   final _flash = ValueNotifier(FlashMode.off);
